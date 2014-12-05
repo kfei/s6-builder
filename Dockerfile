@@ -6,7 +6,7 @@ RUN pacman -Syy && \
     pacman -S --noconfirm --quiet --needed base-devel curl libunistring && \
     pacman -S --noconfirm --quiet --needed --asdeps git jshon expac
 
-ADD build.sh /build.sh
+ADD build.sh /
 
 ENTRYPOINT ["/build.sh"]
 

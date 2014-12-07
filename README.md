@@ -24,14 +24,18 @@ Once you have s6 compiled, copy that tarball
 
 Use `ADD` instruction in Dockerfile to layer s6 binaries onto it, e.g.,
 ```bash
-ADD s6-1.1.3.2-musl-static.tar /
+ADD s6-1.1.3.2-musl-static.tar.xz /
+```
+
+Layer the s6 service directory onto it, e.g.,
+```bash
+COPY rootfs/service /service
 ```
 
 Then you can set your image's entrypoint to s6:
 ```bash
 ENTRYPOINT ["/usr/bin/s6-svscan", "/service"]
 ```
-Where `/service` is the *service directory* for s6. 
 
 For more examples, have a look at my
 [docktorrent](https://github.com/kfei/docktorrent) repository.
